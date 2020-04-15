@@ -55,8 +55,6 @@ app.delete('/api/notes/:id', (req, res) => {
     let json = JSON.parse(data);
     json.forEach((item, i) => {
       if (item.id.includes(deleteId)) {
-        console.log(item.id);
-        console.log(deleteId);
         json.splice(i, 1);
       }
     });
@@ -88,4 +86,4 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //PORT
 const PORT = 8000 || process.env.PORT;
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`)); 
+app.listen(PORT);
