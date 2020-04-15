@@ -1,9 +1,11 @@
-const express = require('express');
 const bodyParser = require('body-parser');
+const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const app = express();
 const uuidv1 = require('uuid/v1');
+
+const app = express();
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -85,5 +87,5 @@ app.get('/notes', (req, res) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 //PORT
-const PORT = 8000 || process.env.PORT;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT);
